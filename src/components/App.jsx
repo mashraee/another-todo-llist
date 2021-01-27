@@ -1,4 +1,4 @@
-import { useReducer, useRef, useState } from 'react';
+import { useReducer, useRef } from 'react';
 import '../style/App.css';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,7 +14,7 @@ const handleTodos = (state, action) => {
         { title: action.payload, id: uuidv4(), complete: false },
       ];
     case REMOVE_TODO:
-      return [];
+      return state.filter((todo) => todo.id !== action.payload);
     case TOGGLE_TODO:
       return [];
     default:
@@ -30,6 +30,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: ADD_TODO, payload: titleRef.current.value });
+    titleRef.current.value = '';
   };
 
   return (
@@ -40,7 +41,14 @@ function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+          <li key={todo.id}>
+            {todo.title}{' '}
+            <button
+              onClick={() => dispatch({ type: REMOVE_TODO, payload: todo.id })}
+            >
+              X
+            </button>
+          </li>
         ))}
       </ul>
     </div>

@@ -4,8 +4,8 @@
 
 
 1. Create todos.
-2. Update todos.
-3. Change the status of a todo.
+2. Delete todos
+3. Update todos.
 
   ###Maybe:
   1. Add users
