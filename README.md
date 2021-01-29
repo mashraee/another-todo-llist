@@ -11,34 +11,38 @@ The user can:
 5. edit any task, using the mouse or keyboard.
 6. view a specific subset of tasks: All tasks, only the active task, or only the completed tasks.
 
+```
 data: todo[]
-[
-{},
-{},
-{}
-]
+  [ {}, {}, {} ]
+```
 
+```
 type Category {
-work: string,
-selfCare: string,
-appointments: string,
-home: string
+  work: string,
+  selfCare: string,
+  appointments: string,
+  home: string
 }
+```
 
+```
 type Todo {
-title: string,
-id: string,
-complete: boolean,
-category: Category
-priority: "black" | "yellow" | "red
-deadline: Date()
+  title: string,
+  id: string,
+  complete: boolean,
+  category: Category
+  priority: "black" | "yellow" | "red
+  deadline: Date()
 }
+```
 
-const todo1: {
-id: "9hgb46",
-title: "Learn React",
-complete: false,
-category: "work"
-relevance: "black"
-deadline: "03-02-2021"
+```
+const todo: {
+  id: "9hgb46",
+  title: "Learn React",
+  complete: false,
+  category: "work"
+  relevance: "black"
+  deadline: "03-02-2021"
 }
+```
