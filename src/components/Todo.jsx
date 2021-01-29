@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { RiDeleteBinFill,RiEdit2Fill,RiArrowGoBackFill,RiSave2Fill } from 'react-icons/ri'
+
 import { REMOVE_TODO, TOGGLE_TODO, EDIT_TODO } from '../constants/todos';
 import { definePriorityClass } from '../utils/functionHelpers';
 
@@ -19,8 +21,8 @@ export default function Todo({
       <div>
         <p>Change the name of: {title}</p>
         <input value={newTitle} onChange={(e) => setTitle(e.target.value)} />
-        <button onClick={() => setIsEditing(false)}>cancel</button>
-        <button onClick={handleSave}>save</button>
+        <button onClick={() => setIsEditing(false)}><RiArrowGoBackFill /></button>
+        <button onClick={handleSave}><RiSave2Fill /></button>
       </div>
     );
   }
@@ -28,7 +30,7 @@ export default function Todo({
   const priorityClass = definePriorityClass(priority);
 
   return (
-    <li>
+    <li className="todo">
       <input
         type="checkbox"
         onChange={() => dispatch({ type: TOGGLE_TODO, payload: { id } })}
@@ -47,9 +49,9 @@ export default function Todo({
         type="button"
         onClick={() => dispatch({ type: REMOVE_TODO, payload: { id } })}
       >
-        X
+       <RiDeleteBinFill />
       </button>
-      <button onClick={() => setIsEditing(true)}>Edit</button>
+      <button onClick={() => setIsEditing(true)}><RiEdit2Fill /></button>
     </li>
   );
 }
