@@ -13,6 +13,7 @@
 }
 
 body {
+  height: 100vh;
   font-family: sans-serif;
   font-size: 1.6rem;
   background-image: url();
@@ -21,7 +22,6 @@ body {
 }
 
 .App {
-  height: 100vh;
   margin: 3rem 0;
   display: flex;
   flex-direction: column;
@@ -71,6 +71,15 @@ form select {
   border: 0;
   margin: 0 1rem;
   background-color: #fff;
+}
+
+form input:focus ,
+form select:focus{
+  border-color: #b381d5;
+  box-shadow: 0 1px 1px #b381d5 inset,
+  0 0 8px #b381d5;
+  outline: 0 none;
+
 }
 
 /* =============================================================================
