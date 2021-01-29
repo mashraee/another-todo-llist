@@ -69,6 +69,21 @@ form select{
   text-decoration: line-through;
 }
 
+.editing{
+  margin-top: 1rem;
+}
+
+.editing input {
+  padding: 0.3rem;
+  border-radius: 3px;
+  border: 0;
+  margin: 0 2rem;
+}
+
+.editing p {
+  text-align: center;
+}
+
 li {
   list-style: none;
   background-color: rgba(255, 255, 255, 0.246);

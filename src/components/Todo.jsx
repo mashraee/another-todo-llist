@@ -18,7 +18,7 @@ export default function Todo({
 
   if (isEditing) {
     return (
-      <div>
+      <div className= "editing">
         <p>Change the name of: {title}</p>
         <input value={newTitle} onChange={(e) => setTitle(e.target.value)} />
         <button onClick={() => setIsEditing(false)}><RiArrowGoBackFill /></button>
