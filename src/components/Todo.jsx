@@ -18,7 +18,7 @@ export default function Todo({
 
   if (isEditing) {
     return (
-      <div className= "editing">
+      <div className= "edit-template-container">
         <p>Change the name of: {title}</p>
         <input value={newTitle} onChange={(e) => setTitle(e.target.value)} />
         <button onClick={() => setIsEditing(false)}><RiArrowGoBackFill /></button>
@@ -45,13 +45,13 @@ export default function Todo({
       >
         {title}
       </span>
+      <button onClick={() => setIsEditing(true)}><RiEdit2Fill /></button>
       <button
         type="button"
         onClick={() => dispatch({ type: REMOVE_TODO, payload: { id } })}
       >
        <RiDeleteBinFill />
       </button>
-      <button onClick={() => setIsEditing(true)}><RiEdit2Fill /></button>
     </li>
   );
 }

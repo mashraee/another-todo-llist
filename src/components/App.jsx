@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App" >
-      <h1 className= "Title">Todo App</h1>
+      <h1 className= "title">Todo App</h1>
       <form onSubmit={handleSubmit}>
         <input placeholder="Add ToDo" ref={titleRef} />
         <label htmlFor="">priority:</label>
