@@ -1,0 +1,14 @@
+.is-complete {
+  text-decoration: line-through;
+}
+li {
+  list-style: none;
+}
+
+.priority-important {
+  color: yellow;
+}
+
+.priority-urgent {
+  color: red;
+}
