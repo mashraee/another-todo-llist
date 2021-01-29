@@ -1,14 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Stylish&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto',
+    sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  background-image: url();
+  background: rgb(179, 129, 213);
+  background: linear-gradient(90deg, rgba(179, 129, 213, 1) 8%, rgba(29, 199, 253, 1) 50%, rgba(69, 252, 210, 1) 100%);
+}
+
+.App {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Stylish',
+  sans-serif;
+  color: #fff;
+  font-size: 70px;
+  text-shadow: 2px 4px 5px #b381d5;
+}
+
+input[type="checkbox"],
+span,
+button {
+  border: none;
+  margin-right: 1rem;
+}
+
+button {
+  color: #fff;
+  /* padding: 1rem; */
+  border: none;
+  background: none;
+}
+
+/* =============================================================================
+| FORM
+============================================================================= */
+
+form {
+  margin-top: 2rem;
+}
+
+form input {
+  padding: 0.3rem;
+  border-radius: 3px;
+  border: 0;
+  margin: 0 2rem;
+}
+
+form select {
+  padding: 0.3rem;
+  border-radius: 3px;
+  border: 0;
+  margin: 0 1rem;
+  background-color: #fff;
+}
+
+form input:focus ,
+form select:focus{
+  border-color: #b381d5;
+  box-shadow: 0 1px 1px #b381d5 inset,
+  0 0 8px #b381d5;
+  outline: 0 none;
+
+}
+
+/* =============================================================================
+| TODO LIST
+============================================================================= */
+
+.todo-list {
+  margin-top: 3rem;
+  background-color: #b381d573;
+  border-radius: 1rem;
+  padding: 0 2rem 2rem;
+}
+
+.todo {
+  padding: 4rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.246);
+  border-radius: 1rem;
+}
+
 .is-complete {
   text-decoration: line-through;
 }
-li {
-  list-style: none;
+
+.editing {
+  margin-top: 1rem;
+}
+
+.edit-template-container input {
+  padding: 0.3rem;
+  border-radius: 3px;
+  border: 0;
+  margin: 0 2rem;
+}
+
+.edit-template-container p {
+  text-align: center;
 }
 
 .priority-important {
-  color: yellow;
+  color: #FFDC00;
 }
 
 .priority-urgent {
-  color: red;
+  color: #FF4136;
 }

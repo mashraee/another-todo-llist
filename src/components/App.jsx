@@ -21,10 +21,10 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Todo App</h1>
+    <div className="App" >
+      <h1 className= "title">Todo App</h1>
       <form onSubmit={handleSubmit}>
-        <input ref={titleRef} />
+        <input placeholder="Add ToDo" ref={titleRef} />
         <label htmlFor="">priority:</label>
         <select onChange={(e) => setPriority(e.target.value)} name="priority">
           <option value="standard">standard</option>
