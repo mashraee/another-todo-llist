@@ -7,13 +7,13 @@ import {
 } from '../constants/todos';
 
 export default function handleTodos(state, action) {
-  const { title, id, newTitle, priority } = action.payload;
+  const { title, id, newTitle, priority, relevance } = action.payload;
 
   switch (action.type) {
     case ADD_TODO:
       return [
         ...state,
-        { title: title, id: uuidv4(), complete: false, priority },
+        { title: title, id: uuidv4(), complete: false, priority, relevance },
       ];
     case REMOVE_TODO:
       return state.filter((todo) => todo.id !== id);

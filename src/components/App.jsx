@@ -8,6 +8,7 @@ import TodoList from './TodoList';
 function App() {
   const [todos, dispatch] = useReducer(handleTodos, []);
   const [priority, setPriority] = useState('standard');
+  const [relevance, setRelevance] = useState('work')
   const titleRef = useRef();
 
   const handleSubmit = (e) => {
@@ -15,22 +16,27 @@ function App() {
 
     dispatch({
       type: ADD_TODO,
-      payload: { title: titleRef.current.value, priority },
+      payload: { title: titleRef.current.value, priority, relevance },
     });
     titleRef.current.value = '';
   };
 
   return (
     <div className="App" >
-      <h1 className= "title">Todo App</h1>
+      <h1 className= "title">To Do App</h1>
       <form onSubmit={handleSubmit}>
-        <input placeholder="Add ToDo" ref={titleRef} />
-        <label htmlFor="">priority:</label>
+        <input type="text" placeholder="Add To Do" ref={titleRef} />
         <select onChange={(e) => setPriority(e.target.value)} name="priority">
           <option value="standard">standard</option>
           <option value="important">important</option>
           <option value="urgent">urgent</option>
         </select>
+        <select onChange={(e) => setRelevance(e.target.value)} name="relevance">
+          <option value="work">work</option>
+          <option value="home">home</option>
+          <option value="personal">personal</option>
+        </select>
+        <button className='btn'>Add</button>
       </form>
       <TodoList todos={todos} dispatch={dispatch} />
     </div>

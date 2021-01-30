@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { RiDeleteBinFill,RiEdit2Fill,RiArrowGoBackFill,RiSave2Fill } from 'react-icons/ri'
 
 import { REMOVE_TODO, TOGGLE_TODO, EDIT_TODO } from '../constants/todos';
 import { definePriorityClass } from '../utils/functionHelpers';
+import {relevanceHandler} from '../utils/relevanceHandler'
 
 export default function Todo({
-  todo: { complete, id, title, priority },
+  todo: { complete, id, title, priority, relevance },
   dispatch,
 }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -20,7 +21,7 @@ export default function Todo({
     return (
       <div className= "edit-template-container">
         <p>Change the name of: {title}</p>
-        <input value={newTitle} onChange={(e) => setTitle(e.target.value)} />
+        <input value={newTitle} onKeyPress={(e) => e.key === 'Enter' && handleSave(e)} onChange={(e) => setTitle(e.target.value)} />
         <button onClick={() => setIsEditing(false)}><RiArrowGoBackFill /></button>
         <button onClick={handleSave}><RiSave2Fill /></button>
       </div>
@@ -28,6 +29,8 @@ export default function Todo({
   }
 
   const priorityClass = definePriorityClass(priority);
+  
+  const relevanceIcon = relevanceHandler (relevance)
 
   return (
     <li className="todo">
@@ -36,6 +39,7 @@ export default function Todo({
         onChange={() => dispatch({ type: TOGGLE_TODO, payload: { id } })}
         checked={complete}
       />
+      <span type="button" >{relevanceIcon}</span>
       <span
         type="button"
         className={
